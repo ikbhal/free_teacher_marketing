@@ -4,7 +4,7 @@ import {onMount} from 'svelte';
 //https://svelte.dev/tutorial/writable-stores
 import {writable} from 'svelte/store';
 
-import {db} from './src/firebase';
+import {db} from './firebase';
 
 let email = '';
 let ytchannel = '';
@@ -83,17 +83,20 @@ function deleteCustomer(id){
 		<label for="email">Email</label>
 		<input type="text" name="email" class="email" bind:value={email} /><br>
 		<label for="ytchannel">Youtube channel</label>
-		<input type="text" name="ytchannel" class="ytchannel" bind:value={ytchannel}><br/>
+		<input type="text" name="ytchannel" class="ytchannel" bind:value={ytchannel}/><br/>
 		<input type="number" name="subscribers" bind:value={subscribers}/><br/>
 		
+
+		<label for="mailSent"> Mail sent</label>
+		<input type="text"  name="mailSent"  bind:value={mailSent} /><br>
 
 		<label for="mailSubject">Mail Subject</label>
 		<input type="text" name="mailSubject"  bind:value={mailSubject} /><br>
 		<label for="mailBody">Mail Body</label>
-		<textarea name="mailBody" bind:value={mailBody}><br/>
+		<textarea name="mailBody" bind:value={mailBody}/><br/>
 
-		<label> Mail sent<input type="checkbox"  name="mail_sent" value="yes" bind:value={mailSent} /></label><br>
-		<label>Status(did not send mail, sent mail, customer respond, customer interested, customer studying)</label>
+	
+		<label for="status">Status(did not send mail, sent mail, customer respond, customer interested, customer studying)</label>
 		<input type="text" name="status" bind:value={status}/><br/>
 
 		<button type="submit">Save</button>
@@ -118,4 +121,5 @@ function deleteCustomer(id){
 </main>
 
 <style>
+
 </style>
